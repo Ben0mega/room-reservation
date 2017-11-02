@@ -1,0 +1,300 @@
+{
+  "type": "FeatureCollection",
+  "features": [{
+      "type": "Feature",
+      "id": 1,
+      "properties": {
+         "name": "Barrows"
+      },
+      "geometry": {
+          "type": "Point",
+          "coordinates": [-122.2580314,37.8700626]
+      }
+  }, 
+  {
+      "type": "Feature",
+      "id": 2,
+      "properties": {
+         "name": "Dwinelle"
+      },
+      "geometry": {
+          "type": "Point",
+          "coordinates": [-122.2605518,37.8707002]
+      }
+  },
+  {
+      "type": "Feature",
+      "id": 3,
+      "properties": {
+         "name": "Life Sciences Addition"
+      },
+      "geometry": {
+          "type": "Point",
+          "coordinates": [-122.2632527,37.8713948]
+      }
+  },
+  {
+      "type": "Feature",
+      "id": 4,
+      "properties": {
+         "name": "Moffit"
+      },
+      "geometry": {
+          "type": "Point",
+          "coordinates": [-122.260748,37.872574]
+      }
+  },
+  {
+      "type": "Feature",
+      "id": 5,
+      "properties": {
+         "name": "VLSB"
+      },
+      "geometry": {
+          "type": "Point",
+          "coordinates": [-122.2621389,37.8714868]
+      }
+  },
+  {
+      "type": "Feature",
+      "id": 6,
+      "properties": {
+         "name": "Wheeler"
+      },
+      "geometry": {
+          "type": "Point",
+          "coordinates": [-122.2591493,37.8713074]
+      }
+  },
+  {
+      "type": "Feature",
+      "id": 7,
+      "properties": {
+         "name": "Birge"
+      },
+      "geometry": {
+          "type": "Point",
+          "coordinates": [-122.2571898,37.8722322]
+      }
+  },
+  {
+      "type": "Feature",
+      "id": 8,
+      "properties": {
+         "name": "Cory"
+      },
+      "geometry": {
+          "type": "Point",
+          "coordinates": [-122.2573242,37.8750364]
+      }
+  },
+  {
+      "type": "Feature",
+      "id": 9,
+      "properties": {
+         "name": "Davis"
+      },
+      "geometry": {
+          "type": "Point",
+          "coordinates": [-122.25812,37.8746326]
+      }
+  },
+  {
+      "type": "Feature",
+      "id": 10,
+      "properties": {
+         "name": "Donner Laboratory"
+      },
+      "geometry": {
+          "type": "Point",
+          "coordinates": [-122.256305,37.8744177]
+      }
+  },
+  {
+      "type": "Feature",
+      "id": 11,
+      "properties": {
+         "name": "Etcheverry"
+      },
+      "geometry": {
+          "type": "Point",
+          "coordinates": [-122.2592805,37.8756626]
+      }
+  },
+  {
+      "type": "Feature",
+      "id": 12,
+      "properties": {
+         "name": "Evans"
+      },
+      "geometry": {
+          "type": "Point",
+          "coordinates": [-122.2578536,37.8736847]
+      }
+  },
+  {
+      "type": "Feature",
+      "id": 13,
+      "properties": {
+         "name": "Goldman School of Public Policy"
+      },
+      "geometry": {
+          "type": "Point",
+          "coordinates": [-122.2578583,37.8757268]
+      }
+  },
+  {
+      "type": "Feature",
+      "id": 14,
+      "properties": {
+         "name": "Hildebrand"
+      },
+      "geometry": {
+          "type": "Point",
+          "coordinates": [-122.2557257,37.8725358]
+      }
+  },
+  {
+      "type": "Feature",
+      "id": 15,
+      "properties": {
+         "name": "Hearst Mining"
+      },
+      "geometry": {
+          "type": "Point",
+          "coordinates": [-122.2572355,37.8744068]
+      }
+  },
+  {
+      "type": "Feature",
+      "id": 16,
+      "properties": {
+         "name": "Haas Faculty Wing"
+      },
+      "geometry": {
+          "type": "Point",
+          "coordinates": [-122.2537809,37.871558]
+      }
+  },
+  {
+      "type": "Feature",
+      "id": 17,
+      "properties": {
+         "name": "Hearst Field Annex"
+      },
+      "geometry": {
+          "type": "Point",
+          "coordinates": [-122.2581587,37.8694693]
+      }
+  },
+  {
+      "type": "Feature",
+      "id": 18,
+      "properties": {
+         "name": "Hearst Memorial Gymnasium"
+      },
+      "geometry": {
+          "type": "Point",
+          "coordinates": [-122.256978,37.8695377]
+      }
+  },
+  {
+      "type": "Feature",
+      "id": 19,
+      "properties": {
+         "name": "Kroeber Hall"
+      },
+      "geometry": {
+          "type": "Point",
+          "coordinates": [-122.2551518,37.869853]
+      }
+  },
+  {
+      "type": "Feature",
+      "id": 20,
+      "properties": {
+         "name": "Wurster Hall"
+      },
+      "geometry": {
+          "type": "Point",
+          "coordinates": [-122.2548935,37.8707352]
+      }
+  },
+  {
+      "type": "Feature",
+      "id": 21,
+      "properties": {
+         "name": "Barker Hall"
+      },
+      "geometry": {
+          "type": "Point",
+          "coordinates": [-122.2654404,37.8739795]
+      }
+  },
+  {
+      "type": "Feature",
+      "id": 22,
+      "properties": {
+         "name": "Giannini Hall"
+      },
+      "geometry": {
+          "type": "Point",
+          "coordinates": [-122.2622986,37.8735349]
+      }
+  },
+  {
+      "type": "Feature",
+      "id": 23,
+      "properties": {
+         "name": "Genetics & Plant Biology"
+      },
+      "geometry": {
+          "type": "Point",
+          "coordinates": [-122.2647492,37.8734357]
+      }
+  },
+  {
+      "type": "Feature",
+      "id": 24,
+      "properties": {
+         "name": "Haviland"
+      },
+      "geometry": {
+          "type": "Point",
+          "coordinates": [-122.2610484,37.8737118]
+      }
+  },
+  {
+      "type": "Feature",
+      "id": 25,
+      "properties": {
+         "name": "Li Ka Shing"
+      },
+      "geometry": {
+          "type": "Point",
+          "coordinates": [-122.2652939,37.8729739]
+      }
+  },
+  {
+      "type": "Feature",
+      "id": 26,
+      "properties": {
+         "name": "Morgan"
+      },
+      "geometry": {
+          "type": "Point",
+          "coordinates": [-122.2642654,37.8733128]
+      }
+  },
+  {
+      "type": "Feature",
+      "id": 27,
+      "properties": {
+         "name": "Mulford"
+      },
+      "geometry": {
+          "type": "Point",
+          "coordinates": [-122.2644811,37.8726096]
+      }
+  }]
+}

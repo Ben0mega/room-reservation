@@ -1,0 +1,25 @@
+= link_to 'Home Page', buildings_path, :class => "home_page_btn"
+  
+%h1 Rooms in #{@building.name} Hall
+- @rooms.each do |room|
+  %button.accordion #{@building.name} #{room.number}
+  .panel
+    %p Capacity: #{room.capacity}
+    %p Room Type: #{room.misc}
+    %p Features: #{room.facilities}
+
+:javascript
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+  
+  for (i = 0; i < acc.length; i++) {
+    acc[i].onclick = function() {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      if (panel.style.maxHeight){
+        panel.style.maxHeight = null;
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      } 
+    }
+  }

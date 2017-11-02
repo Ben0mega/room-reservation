@@ -2,11 +2,28 @@ language: ruby
 
 bundler_args: --without production
 
+rvm:
+ - 2.3.5
+
 services:
   - postgresql
 
 env:
-  - DB=pgsql
+  global:
+    - CC_TEST_REPORTER_ID=9141c5a652dd377a0e12edadd712f55e7a63ee4a4372918e49af1adcf1aecbc7
 
-script:
+before_script:
+  - bundle install
+  - psql -c "CREATE DATABASE app_test;" -U postgres
   - bundle exec rake db:create
+  - bundle exec rake db:migrate
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+  
+script:
+  - bundle exec rspec
+  - bundle exec cucumber
+
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

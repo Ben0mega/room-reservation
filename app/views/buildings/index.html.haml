@@ -1,0 +1,12 @@
+%br
+%h1 Welcome to UC Berkeley Room Reservation
+- @api = ENV['GOOGLE_API_KEY']
+
+#legend{:align => "center"}
+  %p#buildingName
+#map
+:javascript
+  var map;
+  var legend = document.getElementById('buildingName');
+
+%script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=#{@api}&callback=initMap"}
