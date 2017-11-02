@@ -1,0 +1,42 @@
+%br
+%h1 Welcome to UC Berkeley Room Reservation
+
+%div{:id => "filter_div"}
+  %span{:class => "filter_text"}
+    I want a room with
+  = form_tag filter_path, :method => 'GET', :id => 'filters_form', :onsubmit => 'filterMarkers(event)' do
+    = check_box_tag "StudentAccessible", true, params[:StudentAccessible], class: "filter_box"
+    = label_tag "StudentAccessible", "ADA-Student Accessible", class: "filter_label"
+    = check_box_tag "Whiteboard", true, params[:Whiteboard], class: "filter_box"
+    = label_tag "Whiteboard", nil, class: "filter_label"
+    = check_box_tag "AV", true, params[:AV], class: "filter_box"
+    = label_tag "AV", "AV Devices", class: "filter_label"
+    %span{:class => "filter_text"}
+      Room Type:
+    %select{:name => "room_type", :id => "type_drop", :onchange => "update_capacity()"}
+      %option{:value => "Any", :selected => params[:room_type] == "Any"}= "Any"
+      %option{:value => "Classroom", :selected => params[:room_type] == "Classroom"}= "Classroom"
+      %option{:value => "Lecture Hall", :selected => params[:room_type] == "Lecture Hall"}= "Lecture Hall"
+      %option{:value => "Auditorium", :selected => params[:room_type] == "Auditorium"}= "Auditorium"
+      %option{:value => "Seminar Room", :selected => params[:room_type] == "Seminar Room"}= "Seminar Room"
+    %span{:class => "filter_text"}
+      Capacity:
+    %select{:name => "capacity", :id => "capacity_drop"}
+      %option{:value => "Any", :selected => params[:capacity] == "Any"}= "Any"
+      %option{:value => "0,19", :selected => params[:capacity] == "0,19"}= "<20"
+      %option{:value => "20,39", :selected => params[:capacity] == "20,39"}= "20 - 39"
+      %option{:value => "40,59", :selected => params[:capacity] == "40,59"}= "40 - 59"
+      %option{:value => "60,79", :selected => params[:capacity] == "60,79"}= "60 - 79"
+      %option{:value => "80,99", :selected => params[:capacity] == "80,99"}= "80 - 99"
+      %option{:value => "100,199", :selected => params[:capacity] == "100,199"}= "100 - 199"
+      %option{:value => "200,299", :selected => params[:capacity] == "200,299"}= "200 - 299"
+      %option{:value => "300,399", :selected => params[:capacity] == "300,399"}= "300 - 399"
+      %option{:value => "400,499", :selected => params[:capacity] == "400,499"}= "400 - 499"
+      %option{:value => "500,-", :selected => params[:capacity] == "500,-"}= ">500"
+    = submit_tag "Show", :id => "filters_submit"
+  
+- @api = ENV['GOOGLE_API_KEY']
+
+#map
+
+%script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=#{@api}&callback=initMap"}

@@ -1,8 +1,19 @@
 Rails.application.routes.draw do
-  root 'buildings#index'
-  get 'buildings/index'
+  
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'sessions#destroy', as: 'signout'
 
-  get 'buildings/search'
+  resources :sessions, only: [:create, :destroy]
+
+  get 'sessions/create'
+
+  get 'sessions/destroy'
+
+  resources :buildings, :except => [:new, :edit, :create]
+  root :to => redirect('/buildings')
+  get "filter" => "buildings#filter", as: 'filter'
+  get "*path", to: redirect('/')  # Redirect invalid routes to home page.
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

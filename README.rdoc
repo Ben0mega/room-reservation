@@ -1,7 +1,7 @@
 == README
-{<img src="https://api.codeclimate.com/v1/badges/a3d24320e90c81f317a1/maintainability" />}[https://codeclimate.com/github/jain-nikunj/room-reservation/maintainability]
-{<img src="https://api.codeclimate.com/v1/badges/a3d24320e90c81f317a1/test_coverage" />}[https://codeclimate.com/github/jain-nikunj/room-reservation/test_coverage]
-{<img src="https://travis-ci.org/jain-nikunj/room-reservation.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/jain-nikunj/room-reservation]
+{<img src="https://api.codeclimate.com/v1/badges/a6e393aef63333c07923/maintainability" />}[https://codeclimate.com/github/jain-nikunj/room-reservation-app/maintainability]
+{<img src="https://api.codeclimate.com/v1/badges/a6e393aef63333c07923/test_coverage" />}[https://codeclimate.com/github/jain-nikunj/room-reservation-app/test_coverage]
+{<img src="https://travis-ci.org/jain-nikunj/room-reservation-app.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/jain-nikunj/room-reservation-app]
 {Pivotal Tracker}[https://www.pivotaltracker.com/projects/2118215]
 
 Room Reservation

@@ -1,0 +1,64 @@
+body {
+  text-align: center;
+}
+
+#map {
+  height: 700px;
+  border-radius: 10px;
+  margin: 100px;
+}
+
+#buildingName {
+  margin: 0px;
+}
+
+#filters_form {
+  display: inline-block;
+  text-align: center;
+}
+
+/* Style for the whole filter area. */
+#filter_div {
+  padding-top: 30px;
+}
+
+/* Removes the box of checkbox. */
+input[type="checkbox"] {
+  display:none;
+}
+
+/* Style for text in filter area. */
+.filter_text {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+}
+
+/* Filter checkbox labels style. */
+.filter_label {
+    margin:4px;
+    background-color:#EFEFEF;
+    border-radius:4px;
+    border:1px solid #D0D0D0;
+    overflow:auto;
+    float:left;
+}
+
+/* Filter checkbox labels hover style. */
+.filter_label:hover {
+  background:red;
+}
+
+/* Filter checkbox labels checked style. */
+.filter_box:checked + .filter_label {
+  background-color:#911;
+  color:#fff;
+}
+
+/* Room type dorpdown list style. */
+#type_drop {
+  /* TODO */
+}
