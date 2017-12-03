@@ -1,0 +1,98 @@
+%div{:class => "panel-grout"}
+  %div{:class => "panel panel-default"}
+    %div{:class => "panel-heading"}
+      %div
+        %span
+          %button{:class => "text-left", :"data-toggle" => "collapse", :"data-target" => "#filters_collapse", :id => "filter_btn"}
+            %i{:class => "glyphicon glyphicon-plus"}
+            Filter
+        %span{:class => "tag label label-info", :id => "Classroom_tag", :style => "display: none"}
+          %span Classroom
+          %a
+            %i{:class => "remove glyphicon glyphicon-remove glyphicon-white", :onclick => "remove_tag('Classroom')"}
+        %span{:class => "tag label label-info", :id => "LectureHall_tag", :style => "display: none"}
+          %span Lecture Hall
+          %a
+            %i{:class => "remove glyphicon glyphicon-remove glyphicon-white", :onclick => "remove_tag('LectureHall')"}
+        %span{:class => "tag label label-info", :id => "Auditorium_tag", :style => "display: none"}
+          %span Auditorium
+          %a
+            %i{:class => "remove glyphicon glyphicon-remove glyphicon-white", :onclick => "remove_tag('Auditorium')"}
+        %span{:class => "tag label label-info", :id => "SeminarRoom_tag", :style => "display: none"}
+          %span Seminar Room
+          %a
+            %i{:class => "remove glyphicon glyphicon-remove glyphicon-white", :onclick => "remove_tag('SeminarRoom')"}
+        %span{:class => "tag label label-info", :id => "OtherRooms_tag", :style => "display: none"}
+          %span Other Rooms
+          %a
+            %i{:class => "remove glyphicon glyphicon-remove glyphicon-white", :onclick => "remove_tag('OtherRooms')"}
+        %span{:class => "tag label label-info", :id => "StudentAccessible_tag", :style => "display: none"}
+          %span ADA-Student Accessible
+          %a
+            %i{:class => "remove glyphicon glyphicon-remove glyphicon-white", :onclick => "remove_tag('StudentAccessible')"}
+        %span{:class => "tag label label-info", :id => "Board_tag", :style => "display: none"}
+          %span Board
+          %a
+            %i{:class => "remove glyphicon glyphicon-remove glyphicon-white", :onclick => "remove_tag('Board')"}
+        %span{:class => "tag label label-info", :id => "AV_tag", :style => "display: none"}
+          %span AV Devices
+          %a
+            %i{:class => "remove glyphicon glyphicon-remove glyphicon-white", :onclick => "remove_tag('AV')"}
+    %div{:id => "filters_collapse", :class => "panel-collapse collapse"}
+      %div{:id => "filters_div", :class => "row"}
+        = form_tag filter_path, :method => 'GET', :id => 'filters_form', :onsubmit => 'filter_update(event)' do
+          %div{:class => "col-sm-1"}
+          %div{:id => "roomtype_column", :class => "col-sm-3"}
+            %h3{:class => "category_text"}Room Type
+            %div{:class => "checkbox"}
+              %label
+                = check_box_tag "Classroom", true, params.fetch(:Classroom, false)
+                Classroom
+            %div{:class => "checkbox"}
+              %label
+                = check_box_tag "LectureHall", true, params.fetch(:LectureHall, false)
+                Lecture Hall
+            %div{:class => "checkbox"}
+              %label
+                = check_box_tag "Auditorium", true, params.fetch(:Auditorium, false)
+                Auditorium
+            %div{:class => "checkbox"}
+              %label
+                = check_box_tag "SeminarRoom", true, params.fetch(:SeminarRoom, false)
+                Seminar Room
+            %div{:class => "checkbox"}
+              %label
+                = check_box_tag "OtherRooms", true, params.fetch(:OtherRooms, false)
+                Other Rooms
+                
+          %div{:id => "facilities_column", :class => "col-sm-3", :style => "margin-bottom: 40px"}
+            %h3{:class => "category_text"}Features
+            %div{:class => "checkbox"}
+              %label
+                = check_box_tag "StudentAccessible", true, params[:StudentAccessible]
+                ADA-Student Accessible
+            %div{:class => "checkbox"}
+              %label
+                = check_box_tag "Board", true, params[:Board]
+                Board
+            %div{:class => "checkbox"}
+              %label
+                = check_box_tag "AV", true, params[:AV]
+                AV Devices
+          
+          %div{:id => "capacity_column", :class => "col-sm-3"}
+            %h3{:class => "category_text", :style => "margin-left: 0px"}Capacity
+            = number_field_tag "capacityLower", nil, min: 0, step: 1, class: "form-control", :style => "width: 100px; float: left", onchange: "limit()", value: params.fetch(:capacityLower, 0)
+            %span{:id => "to-text"}
+              TO
+            = number_field_tag "capacityUpper", nil, min: 0, step: 1, class: "form-control", :style => "width: 100px; float: left", onchange: "limit()", value: params.fetch(:capacityUpper, 1000)
+            
+          %div{:class => "col-sm-2"}
+            %button{:id => "filters-reset", :class => "btn btn-default", :onclick => "reset_filters()"}Reset
+            %br
+            %button{:id => "filters-submit", :class => "btn btn-default", :onclick => "filter_update(event)"}Show
+
+#map
+
+- @api = ENV['GOOGLE_API_KEY']
+%script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=#{@api}&callback=initMap"}

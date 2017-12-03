@@ -1,0 +1,95 @@
+#filter_btn {
+  height: 30px;
+  width: 180px;
+  border: none;
+  background: none;
+  font-family: helvatica;
+  font-size: 16px;
+  padding-left: 5%;
+}
+
+.category_text {
+  font-family: helvatica;
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+#to-text {
+  margin:20px;
+  margin-top: 5px;
+  float: left;
+}
+
+button:focus {
+  outline:0;
+}
+
+#filters-reset, #filters-submit {
+  margin-top: 20px;
+}
+
+#map {
+  height: calc(100vh - 112px);
+  width: 100%;
+}
+
+#buildingName {
+  margin: 0px;
+}
+
+.panel {
+  margin-bottom: 0px !important;
+  width: 100% !important;
+}
+
+.panel-heading {
+  padding: 0px !important;
+}
+
+.panel-grout {
+  position: relative;
+}
+
+.gm-style-iw + div {
+  display: none;
+}
+
+#tooltip {
+  border-radius: 5px;
+  width: 300px;
+  overflow: hidden;
+}
+
+#ttName, #ttCount, #ttCap {
+  text-align: center;
+}
+
+.tag {
+  font-size: 14px;
+  padding: .3em .4em .4em;
+  margin: 0 .1em;
+}
+
+.tag a {
+  color: #bbb;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.tag a:hover {
+  opacity: 1.0
+}
+
+.tag .remove {
+  vertical-align: middle;
+  top: 0;
+}
+
+.tag a {
+  margin: 0 0 0 .3em;
+}
+
+.tag a .glyphicon-white {
+  color: #fff;
+  margin-bottom: 2px;
+}

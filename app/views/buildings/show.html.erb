@@ -1,0 +1,180 @@
+<div class="page-container">
+  <div class="container">
+    <div class="panel-grout">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div>
+            <span>
+              <button class="text-left" data-target="#filters_collapse" data-toggle="collapse" id="filter_btn">
+                <i class="glyphicon glyphicon-plus"></i>
+                Filter
+              </button>
+            </span>
+            <span class="tag label label-info" id="Classroom_tag" style="display: none">
+              <span>Classroom</span>
+              <a>
+                <i class="remove glyphicon glyphicon-remove glyphicon-white" onclick="details_remove_tag('Classroom')"></i>
+              </a>
+            </span>
+            <span class="tag label label-info" id="LectureHall_tag" style="display: none">
+              <span>Lecture Hall</span>
+              <a>
+                <i class="remove glyphicon glyphicon-remove glyphicon-white" onclick="details_remove_tag('LectureHall')"></i>
+              </a>
+            </span>
+            <span class="tag label label-info" id="Auditorium_tag" style="display: none">
+              <span>Auditorium</span>
+              <a>
+                <i class="remove glyphicon glyphicon-remove glyphicon-white" onclick="details_remove_tag('Auditorium')"></i>
+              </a>
+            </span>
+            <span class="tag label label-info" id="SeminarRoom_tag" style="display: none">
+              <span>Seminar Room</span>
+              <a>
+                <i class="remove glyphicon glyphicon-remove glyphicon-white" onclick="details_remove_tag('SeminarRoom')"></i>
+              </a>
+            </span>
+            <span class="tag label label-info" id="OtherRooms_tag" style="display: none">
+              <span>Other Rooms</span>
+              <a>
+                <i class="remove glyphicon glyphicon-remove glyphicon-white" onclick="details_remove_tag('OtherRooms')"></i>
+              </a>
+            </span>
+            <span class="tag label label-info" id="StudentAccessible_tag" style="display: none">
+              <span>ADA-Student Accessible</span>
+              <a>
+                <i class="remove glyphicon glyphicon-remove glyphicon-white" onclick="details_remove_tag('StudentAccessible')"></i>
+              </a>
+            </span>
+            <span class="tag label label-info" id="Board_tag" style="display: none">
+              <span>Board</span>
+              <a>
+                <i class="remove glyphicon glyphicon-remove glyphicon-white" onclick="details_remove_tag('Board')"></i>
+              </a>
+            </span>
+            <span class="tag label label-info" id="AV_tag" style="display: none">
+              <span>AV Devices</span>
+              <a>
+                <i class="remove glyphicon glyphicon-remove glyphicon-white" onclick="details_remove_tag('AV')"></i>
+              </a>
+            </span>
+          </div>
+        </div>
+        <div class="panel-collapse collapse" id="filters_collapse">
+          <div class="row" id="filters_div">
+            <%= form_tag filter_path, :method => 'GET', :id => 'filters_form', :onsubmit => 'filterMarkers(event)' do %>
+              <div class="col-sm-1"></div>
+              <div class="col-sm-3" id="roomtype_column">
+                <h3 class="category_text">Room Type</h3>
+                <div class="checkbox">
+                  <label>
+                    <%= check_box_tag "Classroom", true, params.fetch(:Classroom, false) %>
+                    Classroom
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <%= check_box_tag "LectureHall", true, params.fetch(:LectureHall, false) %>
+                    Lecture Hall
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <%= check_box_tag "Auditorium", true, params.fetch(:Auditorium, false) %>
+                    Auditorium
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <%= check_box_tag "SeminarRoom", true, params.fetch(:SeminarRoom, false) %>
+                    Seminar Room
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <%= check_box_tag "OtherRooms", true, params.fetch(:OtherRooms, false) %>
+                    Other Rooms
+                  </label>
+                </div>
+              </div>
+              <div class="col-sm-3" id="facilities_column" style="margin-bottom: 40px">
+                <h3 class="category_text">Features</h3>
+                <div class="checkbox">
+                  <label>
+                    <%= check_box_tag "StudentAccessible", true, params[:StudentAccessible] %>
+                    ADA-Student Accessible
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <%= check_box_tag "Board", true, params[:Board] %>
+                    Board
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <%= check_box_tag "AV", true, params[:AV] %>
+                    AV Devices
+                  </label>
+                </div>
+              </div>
+              <div class="col-sm-3" id="capacity_column">
+                <h3 class="category_text" style="margin-left: 0px">Capacity</h3>
+                <%= number_field_tag "capacityLower", nil, min: 0, step: 1, class: "form-control", :style => "width: 100px; float: left", onchange: "limit()", value: params.fetch(:capacityLower, 0) %>
+                <span id="to-text">
+                  TO
+                </span>
+                <%= number_field_tag "capacityUpper", nil, min: 0, step: 1, class: "form-control", :style => "width: 100px; float: left", onchange: "limit()", value: params.fetch(:capacityUpper, 1000) %>
+              </div>
+              <div class="col-sm-2">
+                <button class="btn btn-default" id="filters-reset" onclick="reset_filters()">Reset</button>
+                <br/>
+                <button class="btn btn-default" id="filters-submit" onclick="details_filter()">Show</button>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+  
+
+    <div class="row row-offcanvas row-offcanvas-left">
+        
+      <!-- sidebar -->
+      <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+        <ul class="nav">
+          <% @rooms.each do |room| %>
+            <li style="text-align: center"><a href="#<%=room.number %>"> <%=@building.name %> <%=room.number %> </a></li>
+          <% end %>
+        </ul>
+      </div>
+	
+      <!-- main area -->
+      <% @rooms.each do |room| %>
+        <div id="<%=room.number %>" class="tab-content" style="display:none, width: 75% !important"> 
+          <h2> <%=@building.name %> <%=room.number %> </h2>
+          <p>Capacity: <%=room.capacity %></p>
+          <p>Room Type: <%=room.misc %></p>
+          <p>Features: <%=room.facilities %></p>
+        </div>
+      <% end %>
+
+    </div><!--/.row-->
+  </div><!--/.container-->
+</div><!--/.page-container-->
+
+<script>
+$(document).ready(function () {
+$('.tab-content:not()').hide();
+$('.col-xs-6.col-sm-3.sidebar-offcanvas ul li a').click(function (event) {
+  event.preventDefault();
+  var content = $(this).attr('href');
+  $(this).parent().addClass('active');
+  $(this).parent().siblings().removeClass('active');
+  $(content).show();
+  $(content).siblings('.tab-content').hide();
+  });
+});
+</script>

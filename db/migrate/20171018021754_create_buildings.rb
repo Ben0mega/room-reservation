@@ -3,8 +3,8 @@ class CreateBuildings < ActiveRecord::Migration
     create_table :buildings do |t|
       t.string :name
       t.text :misc
-
-      t.timestamps null: false
+      t.float :lng
+      t.float :lat
     end
   end
 end

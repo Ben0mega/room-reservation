@@ -1,3 +1,25 @@
 // Place all the styles related to the Buildings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+h2 {
+    
+    margin-top: 10px;
+}
+
+.home_page_btn {
+  -webkit-border-radius: 25;
+  -moz-border-radius: 25;
+  border-radius: 25px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  background: #003262;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+
+.home_page_btn:hover {
+  background: #FDB515;
+  text-decoration: none;
+}

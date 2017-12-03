@@ -11,6 +11,15 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
+
+gem 'bootstrap-sass'
+gem 'sprockets'
+
+gem "omniauth-google-oauth2"
+
+gem 'dotenv-rails'
+
+gem 'haml-rails'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -33,10 +42,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 group :test do
   gem 'simplecov', :require => false
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels'
   gem 'autotest-rails'
   gem 'database_cleaner'
+  gem 'selenium-webdriver'
 end
 
 group :development, :test do
